@@ -1,7 +1,7 @@
 
 # PouchDB Size Test for BlackBerry 10 
 
-### Getting Started
+### Getting started
 
 1) Install webworks
 
@@ -14,3 +14,5 @@
 5) ```webworks run blackberry10```
 
 ### Running the test
+
+1) Tap the ```Destroy``` button; once that completes, tap the ```Test``` button.
