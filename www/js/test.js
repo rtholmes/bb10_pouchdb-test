@@ -6,13 +6,26 @@ function getDb() {
 
 function destroyDb() {
 	print("destroyDb() - starting...");
+	disableButtons();
 	
     var db = getDb();
     db.destroy().then(function () {
         print("destroyDb() - success");
+		enableButtons();
     }).catch(function (err) {
         print("destroyDb() - ERROR: " + err);
+		enableButtons();
     });
+}
+
+function disableButtons() {
+	document.getElementById('testButton').disabled = true;
+	document.getElementById('destroyButton').disabled = true;
+}
+
+function enableButtons() {
+	document.getElementById('testButton').disabled = false;
+	document.getElementById('destroyButton').disabled = false;
 }
 
 function print(msg) {
@@ -27,6 +40,7 @@ function testDb() {
 
     if (typeof window.testDbValue === 'undefined') {
 		print("testDb() - start");
+		disableButtons();
         window.testDbValue = "";
         window.testDbIteration = 0;
         for (var i = 0; i < 262144; i++) { // 256 kb
@@ -48,9 +62,11 @@ function testDb() {
                 print('testDb(..) - ERROR ( ' + err.status + " ) : " + JSON.stringify(err));
                 delete window.testDbValue;
                 delete window.testDbIteration;
+				enableButtons();
             }
         });
     } catch (err) {
         print("testDb(..) - ERROR: " + err.message);
+		enableButtons();
     }
 }
