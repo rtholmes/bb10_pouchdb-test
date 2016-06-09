@@ -16,3 +16,5 @@
 ### Running the test
 
 1) Tap the ```Destroy``` button; once that completes, tap the ```Test``` button.
+
+Minor change
